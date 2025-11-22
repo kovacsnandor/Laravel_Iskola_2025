@@ -9,4 +9,9 @@ class Schoolclass extends Model
 {
     /** @use HasFactory<\Database\Factories\SchoolclassFactory> */
     use HasFactory;
+    public $timestamps = true;
+
+    protected $fillable = [
+        'osztalyNev',
+    ];
 }
