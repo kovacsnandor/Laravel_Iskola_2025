@@ -9,4 +9,9 @@ class Sport extends Model
 {
     /** @use HasFactory<\Database\Factories\SportFactory> */
     use HasFactory;
+    public $timestamps = true;
+
+    protected $fillable = [
+        'sportNev',
+    ];
 }
