@@ -12,7 +12,23 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id')->autoIncrement();
+            $table->primary('id');
+            $table->string('diakNev', 75)->notNull();
+            $table->integer('schoolclassId')->nullable()->default(null);
+            $table->foreign('schoolclassId') // Az idegen kulcs oszlopa
+                  ->references('id')         // A hivatkozott oszlop a szülő táblában
+                  ->on('schoolclasses')      // A szülő tábla neve
+                  ->onDelete('restrict');    // Ha hivatkoznak rá, a törlés blokkolva van.
+            $table->boolean('neme')->default(false);
+            $table->string('iranyitoszam', 5)->nullable()->default(null);
+            $table->string('lakHelyseg', 75)->nullable()->default(null);
+            $table->string('lakCim', 100)->nullable()->default(null);
+            $table->string('szulHelyseg', 75)->nullable()->default(null);
+            $table->date('szulDatum')->nullable()->default(null);
+            $table->string('igazolvanyszam', 25)->nullable()->default(null);
+            $table->decimal('atlag', 2, 1)->default(0.0);
+            $table->decimal('osztondij', 10, 0)->default(0);
             $table->timestamps();
         });
     }
