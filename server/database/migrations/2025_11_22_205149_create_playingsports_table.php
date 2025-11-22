@@ -12,13 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('playingsports', function (Blueprint $table) {
-            $table->integer('studentId')->nullable()->default(null);
-            $table->integer('sportId')->nullable()->default(null);
-            $table->foreignId('studentId')
+            $table->integer('studentId')->notNull();
+            $table->integer('sportId')->notNull();
+            $table->foreign('studentId')
                 ->references('id')        
                 ->on('students')
                 ->onDelete('restrict');  
-            $table->foreignId('sportId')
+            $table->foreign('sportId')
                 ->references('id')         
                 ->on('sports')
                 ->onDelete('restrict');
