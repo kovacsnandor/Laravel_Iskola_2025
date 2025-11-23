@@ -20,6 +20,8 @@ class DatabaseSeeder extends Seeder
 
         //Mielőtt seedelünk, minden táblát töröljünk le.
         DB::statement('DELETE FROM users');
+        DB::statement('DELETE FROM playingsports');
+        DB::statement('DELETE FROM students');
         DB::statement('DELETE FROM schoolclasses');
         DB::statement('DELETE FROM sports');
 
@@ -30,6 +32,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             SchoolclassSeeder::class,
             SportSeeder::class,
+            StudentSeeder::class,
+            PlayingsportSeeder::class,
         ]);
     }
 }
