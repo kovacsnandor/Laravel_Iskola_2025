@@ -15,7 +15,7 @@ class SportSeeder extends Seeder
     public function run(): void
     {
 
-        $fileName = 'csv\products.csv';
+        $fileName = 'csv\sports.csv';
         $delimiter = ';';
 
         $data = CsvReader::csvToArray($fileName, $delimiter);
