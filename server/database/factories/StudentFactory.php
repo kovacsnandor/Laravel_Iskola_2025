@@ -79,7 +79,7 @@ class StudentFactory extends Factory
         $lakHelyseg = $this->faker->city();
         $lakCim = $this->faker->streetAddress();
         $szulHelyseg = $this->faker->city();
-        $szulDatum = $this->faker->dateTimeBetween('-'.($age+1).' years', '-'.($age+0).' years');
+        $szulDatum = $this->faker->dateTimeBetween('-'.($age+1).' years', '-'.$age.' years');
         $igazolvanyszam = $this->faker->bothify('??#######');
         $atlag = $this->faker->randomFloat(
             $maxDecimals = 1,
