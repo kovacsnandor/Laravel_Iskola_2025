@@ -57,9 +57,6 @@ class StudentFactory extends Factory
      */
     public function definition(): array
     {
-
-
-
         $neme = $this->faker->boolean();
         $lastName = $this->faker->lastName();
         if ($neme) {

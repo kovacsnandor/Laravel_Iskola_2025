@@ -35,7 +35,6 @@ class PlayingsportFactory extends Factory
                 ->exists();
         } while ($exists);
 
-
         return [
             'studentId' => $randomStudentId,
             'sportId' => $randomSportId,
