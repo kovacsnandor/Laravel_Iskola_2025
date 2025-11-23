@@ -73,13 +73,13 @@ class StudentFactory extends Factory
         //Véletlen osztály
         $randomClass = Schoolclass::inRandomOrder()->first();
         $grade = substr($randomClass->osztalyNev, 0, 1);
-        $age =$this->faker->numberBetween($grade +5, $grade+6);
+        $age =$grade +5;
         $schoolclassId = $randomClass->id;
         $iranyitoszam = $this->faker->postcode();
         $lakHelyseg = $this->faker->city();
         $lakCim = $this->faker->streetAddress();
         $szulHelyseg = $this->faker->city();
-        $szulDatum = $this->faker->dateTimeBetween("-$age years", "-$age years");
+        $szulDatum = $this->faker->dateTimeBetween('-'.($age+1).' years', '-'.($age+0).' years');
         $igazolvanyszam = $this->faker->bothify('??#######');
         $atlag = $this->faker->randomFloat(
             $maxDecimals = 1,

@@ -19,7 +19,7 @@ class PlayingsportSeeder extends Seeder
 
         $numberOfStudent = Student::count();
         $numberOfAthletes = round($numberOfStudent * $percentageOfStudentsPlayingSports);
-        $numberOfSports =round($numberOfAthletes*$averageNumberOfSportsAStudentPlays);
+        $numberOfSports = round($numberOfAthletes * $averageNumberOfSportsAStudentPlays);
         Playingsport::factory()->count($numberOfSports)->create();
     }
 }
