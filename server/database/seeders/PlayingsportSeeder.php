@@ -14,12 +14,17 @@ class PlayingsportSeeder extends Seeder
      */
     public function run(): void
     {
+        //A tanulók 20 százaléka sportol
         $percentageOfStudentsPlayingSports = 0.2;
+        //Egy spolrtoló átlagosan 1,3 sportágat űz
         $averageNumberOfSportsAStudentPlays = 1.3;
 
         $numberOfStudent = Student::count();
         $numberOfAthletes = round($numberOfStudent * $percentageOfStudentsPlayingSports);
         $numberOfSports = round($numberOfAthletes * $averageNumberOfSportsAStudentPlays);
-        Playingsport::factory()->count($numberOfSports)->create();
+        // Playingsport::factory()->count($numberOfSports)->create();
+        for ($i=0; $i <$numberOfSports; $i++) { 
+            Playingsport::factory()->create();
+        }
     }
 }

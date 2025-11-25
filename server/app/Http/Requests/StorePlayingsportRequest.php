@@ -21,8 +21,12 @@ class StorePlayingsportRequest extends FormRequest
      */
     public function rules(): array
     {
+        $tableName = 'playingsports';
+
         return [
-            //
+            // A szintaktika: unique:tábla,oszlop,kizárt_id,kulcsoszlop,extra_oszlop,extra_érték
+            'diakokId' => "required|integer|unique:$tableName,diakokId,NULL,diakokId,sportokId," . $this->sportokId,
+            'sportokId' => 'required|integer',
         ];
     }
 }

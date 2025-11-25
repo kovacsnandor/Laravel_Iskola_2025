@@ -12,18 +12,33 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('playingsports', function (Blueprint $table) {
-            $table->integer('studentId')->notNull();
-            $table->integer('sportId')->notNull();
-            $table->foreign('studentId')
-                ->references('id')        
-                ->on('students')
-                ->onDelete('restrict');  
-            $table->foreign('sportId')
-                ->references('id')         
-                ->on('sports')
-                ->onDelete('restrict');
-            $table->primary(['studentId', 'sportId']);
+            // $table->integer('studentId')->notNull();
+            // $table->integer('sportId')->notNull();
+            // $table->foreign('studentId')
+            //     ->references('id')        
+            //     ->on('students')
+            //     ->onDelete('restrict');  
+            // $table->foreign('sportId')
+            //     ->references('id')         
+            //     ->on('sports')
+            //     ->onDelete('restrict');
+
+            // $table->foreignId('studentId')->constrained('students')->onDelete('cascade');
+            // $table->foreignId('sportId')->constrained('sports')->onDelete('restrict');
+
+            // $table->primary(['studentId', 'sportId']);
+            // $table->timestamps();
+
+            $table->id(); // Hozzáadja az automatikusan növekvő BIGINT Primary Key oszlopot
+            
+            $table->foreignId('studentId')->constrained('students')->onDelete('cascade');
+            $table->foreignId('sportId')->constrained('sports')->onDelete('restrict');
+            
+            $table->unique(['studentId', 'sportId']);
+            
+            // Időbélyegek
             $table->timestamps();
+
         });
     }
 

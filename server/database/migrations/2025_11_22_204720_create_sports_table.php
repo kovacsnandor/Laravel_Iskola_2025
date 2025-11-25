@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('sports', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
-            $table->primary('id');
+            // $table->integer('id')->autoIncrement();
+            // $table->primary('id');
+            $table->id(); //Bigint, Unsigned
             $table->string('sportNev', 75)->notNull();
             $table->unique('sportNev', 'sports_sportNev_unique');
             $table->timestamps();

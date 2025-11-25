@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('schoolclasses', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
-            $table->primary('id');
+            // $table->integer('id')->autoIncrement();
+            // $table->primary('id');
+            $table->id(); //Bigint, Unsigned
             $table->string('osztalyNev', 75)->notNull();
             $table->unique('osztalyNev', 'schoolclasses_osztalyNev_unique');
             $table->timestamps();

@@ -12,14 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('students', function (Blueprint $table) {
-            $table->integer('id')->autoIncrement();
-            $table->primary('id');
+            // $table->integer('id')->autoIncrement();
+            // $table->primary('id');
+            $table->id();
             $table->string('diakNev', 75)->notNull();
-            $table->integer('schoolclassId')->nullable()->default(null);
-            $table->foreign('schoolclassId') // Az idegen kulcs oszlopa
-                  ->references('id')         // A hivatkozott oszlop a szülő táblában
-                  ->on('schoolclasses')      // A szülő tábla neve
-                  ->onDelete('restrict');    // Ha hivatkoznak rá, a törlés blokkolva van.
+            // $table->integer('schoolclassId')->nullable()->default(null);
+            // $table->foreign('schoolclassId') // Az idegen kulcs oszlopa
+            //       ->references('id')         // A hivatkozott oszlop a szülő táblában
+            //       ->on('schoolclasses')      // A szülő tábla neve
+            //       ->onDelete('restrict');    // Ha hivatkoznak rá, a törlés blokkolva van.
+
+            //1. Létrehozza a mezőt 2. Feltételezi hogy a schoolclasses tábla kulcsa id, és megycsinálja a kapcsolatot is
+            $table->foreignId('schoolclassId')->constrained('schoolclasses')->onDelete('cascade'); 
+
             $table->boolean('neme')->default(false);
             $table->string('iranyitoszam', 5)->nullable()->default(null);
             $table->string('lakHelyseg', 75)->nullable()->default(null);
