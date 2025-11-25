@@ -16,7 +16,7 @@ return new class extends Migration
             // $table->primary('id');
             $table->id(); //Bigint, Unsigned
             $table->string('sportNev', 75)->notNull();
-            $table->unique('sportNev', 'sports_sportNev_unique');
+            $table->unique('sportNev');
             $table->timestamps();
         });
     }

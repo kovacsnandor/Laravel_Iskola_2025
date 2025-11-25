@@ -16,7 +16,7 @@ return new class extends Migration
             // $table->primary('id');
             $table->id(); //Bigint, Unsigned
             $table->string('osztalyNev', 75)->notNull();
-            $table->unique('osztalyNev', 'schoolclasses_osztalyNev_unique');
+            $table->unique('osztalyNev');
             $table->timestamps();
         });
     }
