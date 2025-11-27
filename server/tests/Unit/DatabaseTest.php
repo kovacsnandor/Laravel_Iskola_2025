@@ -116,7 +116,8 @@ class DatabaseTest extends TestCase
         $student = Student::factory()->create($dataStudent);
 
         //visszakeressük a diákot
-        $student = DB::table('students')
+        $student =
+            DB::table('students')
             ->where('id',  $student->id)
             ->first();
 
