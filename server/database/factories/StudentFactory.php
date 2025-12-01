@@ -36,7 +36,7 @@ class StudentFactory extends Factory
         }
 
         foreach ($scholarshipTiers as $minAverage => $amount) {
-            if ($averageGrade >= $minAverage) {
+            if ($averageGrade >= (float)$minAverage) {
                 // Megtaláltuk a legmagasabb szintet, amibe beleesik
                 $scholarshipAmount = $amount;
                 break;

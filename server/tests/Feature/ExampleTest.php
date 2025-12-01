@@ -12,6 +12,7 @@ class ExampleTest extends TestCase
      */
     public function test_the_application_returns_a_successful_response(): void
     {
+        //Endpoint pingelése
         $response = $this->get('/api/x');
         // $response->dumpHeaders();
  
@@ -21,5 +22,6 @@ class ExampleTest extends TestCase
         // $response->dump();
 
         $response->assertStatus(200);
+        $response->assertSee("API");
     }
 }

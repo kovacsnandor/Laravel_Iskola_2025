@@ -1,0 +1,33 @@
+Database (Tests\Unit\Database)
+ [x] Database creation end tables exists
+ [x] Sports table structure
+ [x] Students schoolclasses relationships
+
+Example (Tests\Feature\Example)
+ [x] The application returns a successful response
+
+Example (Tests\Unit\Example)
+ [x] That true is true
+ [x] TheAssert is true
+ [x] Check person map
+
+Scholarship Calculator (Tests\Unit\ScholarshipCalculator)
+ [x] It returns max scholarship for 5 dot 0 and above with data set #0
+ [x] It returns max scholarship for 5 dot 0 and above with data set #1
+ [x] It returns max scholarship for 5 dot 0 and above with data set #2
+ [x] It returns 30000 for 4 dot 5 to 4 dot 99 with data set #0
+ [x] It returns 30000 for 4 dot 5 to 4 dot 99 with data set #1
+ [x] It returns 30000 for 4 dot 5 to 4 dot 99 with data set #2
+ [x] It returns 22000 for 4 dot 0 to 4 dot 49 with data set #0
+ [x] It returns 22000 for 4 dot 0 to 4 dot 49 with data set #1
+ [x] It returns 22000 for 4 dot 0 to 4 dot 49 with data set #2
+ [x] It returns 15000 for 3 dot 0 to 3 dot 99 with data set #0
+ [x] It returns 15000 for 3 dot 0 to 3 dot 99 with data set #1
+ [x] It returns 15000 for 3 dot 0 to 3 dot 99 with data set #2
+ [x] It returns 10000 for 2 dot 0 to 2 dot 99 with data set #0
+ [x] It returns 10000 for 2 dot 0 to 2 dot 99 with data set #1
+ [x] It returns 10000 for 2 dot 0 to 2 dot 99 with data set #2
+ [x] It returns zero for below 2 dot 0 with data set #0
+ [x] It returns zero for below 2 dot 0 with data set #1
+ [x] It returns zero for below 2 dot 0 with data set #2
+

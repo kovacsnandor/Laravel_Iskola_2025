@@ -12,7 +12,7 @@ class ExampleTest extends TestCase
     public function test_that_true_is_true(): void
     {
          
-        $this->assertTrue(true,"Ez nem true");
+        $this->assertTrue(false,"Ez nem true");
     }
 
     public function test_theAssert_is_true(): void
@@ -38,5 +38,6 @@ class ExampleTest extends TestCase
         $this->assertCount($personPropertyCount, $person, "A személy adatainak száma nem: $personPropertyCount");
         $this->assertIsArray($person,"Ez nem gyűjtemény");
         $this->assertIsString($name, "Ez nem sztring");
+        
     }
 }
