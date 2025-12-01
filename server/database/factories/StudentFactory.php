@@ -18,14 +18,14 @@ class StudentFactory extends Factory
         return \Faker\Factory::create('hu_HU');
     }
 
-    function getScholarship(float $averageGrade): int
+    public static function getScholarship(float $averageGrade): int
     {
-        // A táblázat a legmagasabb átlag/ösztöndíj párostól induljon!
+
         $scholarshipTiers = [
-            4.5 => 30000,
-            4.0 => 22000,
-            3.0 => 15000,
-            2.0 => 10000,
+            "4.5" => 30000,
+            "4.0" => 22000,
+            "3.0" => 15000,
+            "2.0" => 10000,
         ];
 
         $scholarshipAmount = 0;
@@ -83,7 +83,7 @@ class StudentFactory extends Factory
             $min = 1.0,
             $max = 5.0
         );
-        $osztondij = $this->getScholarship($atlag);
+        $osztondij = self::getScholarship($atlag);
         return [
             'diakNev' => $diakNev,
             'schoolclassId' => $schoolclassId,
