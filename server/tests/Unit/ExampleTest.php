@@ -12,7 +12,7 @@ class ExampleTest extends TestCase
     public function test_that_true_is_true(): void
     {
          
-        $this->assertTrue(false,"Ez nem true");
+        $this->assertTrue(true,"Ez nem true");
     }
 
     public function test_theAssert_is_true(): void
