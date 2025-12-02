@@ -22,7 +22,7 @@ class UpdateSportRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'sportNev' => ['required', 'string', 'max:255'],
         ];
     }
 }

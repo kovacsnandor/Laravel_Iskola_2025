@@ -22,7 +22,7 @@ class UpdateSchoolclassRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+             'osztalyNev' => 'required|string'
         ];
     }
 }
