@@ -22,7 +22,13 @@ class StoreStudentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'diakNev' => 'required|string',
+            'igazolvanyszam' => [
+                'required',
+                'string',
+                'max:20',
+                'unique:students',              
+            ],
         ];
     }
 }

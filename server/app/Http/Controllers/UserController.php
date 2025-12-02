@@ -62,12 +62,12 @@ class UserController extends Controller
             case 2:
                 //Raktáros
                 $abilities = [
-                    'usersme:delete',
-                    'usersme:patch',
+                    'students:post',
+                    'students:patch',
+                    'students:delete',
                     'usersme:get',
-                    'products:create',
-                    'products:delete',
-                    'products:update',
+                    'usersme:patch',
+                    'usersme:delete',
                 ];
                 break;
             default:
