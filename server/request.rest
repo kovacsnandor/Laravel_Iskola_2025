@@ -13,7 +13,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "vasarlo1@example.com",
+    "email": "tanar@example.com",
     "password": "123"
 }
 
@@ -43,8 +43,8 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 {
-    "name":  "Vásárló2",
-    "email": "vasarlo2@example.com",
+    "name":  "Tanuló2",
+    "email": "tanulo2@example.com",
     "password": "123"
 }
 
@@ -146,4 +146,135 @@ Authorization: Bearer {{token}}
 {
     "price": 1002,
     "stock": "eee"
+}
+
+### --- schoolclasses ---
+### get classes 
+GET {{host}}/api/schoolclasses 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+### get class by id 
+GET {{host}}/api/schoolclasses/25 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+### post class 
+POST {{host}}/api/schoolclasses 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+{
+"osztalyNev": "8d"
+}
+
+### delete class by id 
+DELETE {{host}}/api/schoolclasses/26 
+Content-Type: application/json 
+Accept: application/json 
+Authorization: Bearer {{token}}
+
+### patch class by id 
+PATCH {{host}}/api/schoolclasses/28 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+{
+"osztalyNev": "8boss"
+}
+
+### --- sports ---
+### get sports 
+GET {{host}}/api/sports 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+
+### get sport by id 
+GET {{host}}/api/sports/5 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+
+### post sport 
+POST {{host}}/api/sports 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+{
+"sportNev": "Táj csí1"
+}
+
+### patch sport 
+PATCH {{host}}/api/sports/39 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+{
+"sportNev": "Táj csí"
+}
+
+### delete sport 
+DELETE {{host}}/api/sports/1 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+### --- students
+### get students 
+GET {{host}}/api/students
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+### get students by id 
+GET {{host}}/api/students/567
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+### delete students by id 
+delete {{host}}/api/students/674
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+### post students 
+POST {{host}}/api/students 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+{
+    "diakNev": "Tóth Márton", 
+    "schoolclassId": 3, 
+    "neme": true, 
+    "iranyitoszam": "4024", 
+    "lakHelyseg": "Debrecen", 
+    "lakCim": "Kossuth utca 18.", 
+    "szulHelyseg": "Nyíregyháza", 
+    "szulDatum": "2007.11.23", 
+    "igazolvanyszam": "AB482894", 
+    "atlag": 3.7, 
+    "osztondij": 25000
+}
+
+### patch student 
+PATCH {{host}}/api/students/1 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+{
+    "diakNev": "Tóth Géza", 
+    "atlag": 4.1, 
+    "osztondij": 30000
 }
