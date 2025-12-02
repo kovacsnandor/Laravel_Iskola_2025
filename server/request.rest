@@ -6,6 +6,7 @@
 ### @token = 12|ibiwTdr77o8ppToh1tBxIkckBNb8ECjIjLgaweTaa757cdef
 
 
+### --- login-logout
 ### login
 # @name login
 POST {{host}}/api/users/login
@@ -17,7 +18,7 @@ Content-Type: application/json
     "password": "123"
 }
 
-###
+### token kiszed
 @token = {{login.response.body.data.token}}
 
 ### logout user
@@ -25,7 +26,7 @@ POST  {{host}}/api/users/logout
 Accept: application/json
 Authorization: Bearer {{token}}
 
-
+### --- users
 ### get users
 GET  {{host}}/api/users
 Accept: application/json
@@ -97,58 +98,12 @@ Accept: application/json
 Authorization: Bearer {{token}}
 
 
-
-### teszt
+### --- API teszt
 get {{host}}/api/x
 
-### get products
-get {{host}}/api/products
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer {{token}}
 
 
-### get product by id
-get {{host}}/api/products/1
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer {{token}}
-
-### post products
-POST  {{host}}/api/products
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer {{token}}
-
-{
-    "category": "Bogyós",
-    "name": "f3333xx",
-    "description": "Kézzel termelt egészség",
-    "picture": "https:\/\/hur.webmania.cc\/img\/malna.jpg",
-    "price": 8000,
-    "stock": 22
-}
-
-### delete product by id
-delete {{host}}/api/products/104
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer {{token}}
-
-
-### post products
-PATCH {{host}}/api/products/1
-Accept: application/json
-Content-Type: application/json
-Authorization: Bearer {{token}}
-
-
-{
-    "price": 1002,
-    "stock": "eee"
-}
-
-### --- schoolclasses ---
+### --- schoolclasses
 ### get classes 
 GET {{host}}/api/schoolclasses 
 Accept: application/json 
@@ -187,7 +142,7 @@ Authorization: Bearer {{token}}
 "osztalyNev": "8boss"
 }
 
-### --- sports ---
+### --- sports
 ### get sports 
 GET {{host}}/api/sports 
 Accept: application/json 
