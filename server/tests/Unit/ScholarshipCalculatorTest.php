@@ -1,133 +1,71 @@
 <?php
 
 namespace Tests\Unit;
-use Database\Factories\StudentFactory;
 
-use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
-
-
+use Database\Factories\StudentFactory; // Feltételezett útvonal. Cserélje ki a megfelelőre!
+use PHPUnit\Framework\Attributes\DataProvider;
 
 class ScholarshipCalculatorTest extends TestCase
 {
+    // A tesztelt osztály egy példánya.
+    // Létrehozható a setUp() metódusban, ha minden tesztnek szüksége van rá.
+    // protected StudentFactory $studentFactory;
 
-    // A teszt futása előtt inicializáljuk az osztályt
-    protected function setUp(): void
-    {
-        parent::setUp();
-        
-    }
-
-    // --- Sikeres (pozitív) tesztesetek ---
+    // protected function setUp(): void
+    // {
+    //     parent::setUp();
+    //     // Példányosítjuk az osztályt a tesztek futtatása előtt
+    //     $this->studentFactory = new StudentFactory();
+    // }
 
     /**
-     * Teszteli az 5.0 vagy afölötti átlagot.
+     * Adat szolgáltató a tesztesetekhez az új szintekkel.
+     *
+     * @return array
      */
-    #[DataProvider('averageGradesForMaxScholarship')]
-    public function test_it_returns_max_scholarship_for_5_dot_0_and_above(float $average)
-    {
-        $this->assertEquals(40000, StudentFactory::getScholarship($average));
-    }
-
-    public static function averageGradesForMaxScholarship(): array
+    
+    public static function scholarshipDataProvider(): array
     {
         return [
-            [5.0],
-            [5.0], // Ismétlés a kerekítési pontosság miatt
-            [5.01],
+            // Átlag => Várható ösztöndíj összege
+            'Max ösztöndíj - pontos 5.0' => [5.0, 60000],
+            'Max ösztöndíj - 5.0 felett' => [5.05, 60000],
+
+            // 4.5-ös szint (42000 Ft)
+            '4.5 szint - pontos 4.5' => [4.5, 42000],
+            '4.5 szint - 4.5 és 5.0 között' => [4.99, 42000],
+
+            // 3.5-ös szint (25000 Ft)
+            '3.5 szint - pontos 3.5' => [3.5, 25000],
+            '3.5 szint - 3.5 és 4.5 között' => [4.49, 25000],
+
+            // 2.5-ös szint (16000 Ft)
+            '2.5 szint - pontos 2.5' => [2.5, 16000],
+            '2.5 szint - 2.5 és 3.5 között' => [3.49, 16000],
+
+            // 2.0-ás szint (8000 Ft)
+            '2.0 szint - pontos 2.0' => [2.0, 8000],
+            '2.0 szint - 2.0 és 2.5 között' => [2.49, 8000],
+
+            // 0 Ft (minimális átlag alatt)
+            'Minimum alatt - 1.99' => [1.99, 0],
+            'Minimum alatt - 0.0' => [0.0, 0],
         ];
     }
 
     /**
-     * Teszteli a 4.5-ös szintet.
+     * //@dataProvider scholarshipDataProvider
      */
-    #[DataProvider('averageGradesFor30000')]
-    public function test_it_returns_30000_for_4_dot_5_to_4_dot_99(float $average)
+    #[DataProvider('scholarshipDataProvider')]
+    public function test_get_scholarship_returns_correct_amount_for_average_grade(float $averageGrade, int $expectedAmount): void
     {
-        $this->assertEquals(30000, StudentFactory::getScholarship($average));
-    }
+        // Act
+        // A nem statikus metódust az osztály példányán keresztül hívjuk meg
+        // $actualAmount = $this->studentFactory->getScholarShip($averageGrade);
+        $actualAmount = StudentFactory::getScholarShip($averageGrade);
 
-    public static function averageGradesFor30000(): array
-    {
-        return [
-            [4.5], // A pontos határ
-            [4.99],
-            [4.501],
-        ];
-    }
-
-    /**
-     * Teszteli a 4.0-ás szintet.
-     */
-    #[DataProvider('averageGradesFor22000')]
-    public function test_it_returns_22000_for_4_dot_0_to_4_dot_49(float $average)
-    {
-        $this->assertEquals(22000, StudentFactory::getScholarship($average));
-    }
-
-    public static function averageGradesFor22000(): array
-    {
-        return [
-            [4.0], // A pontos határ
-            [4.49],
-            [4.001],
-        ];
-    }
-
-    /**
-     * Teszteli a 3.0-ás szintet.
-     */
-    #[DataProvider('averageGradesFor15000')]
-    public function test_it_returns_15000_for_3_dot_0_to_3_dot_99(float $average)
-    {
-        $this->assertEquals(15000, StudentFactory::getScholarship($average));
-    }
-
-    public static function averageGradesFor15000(): array
-    {
-        return [
-            [3.0],
-            [3.99],
-            [3.5],
-        ];
-    }
-
-    /**
-     * Teszteli a 2.0-ás szintet.
-     */
-    #[DataProvider('averageGradesFor10000')]
-    public function test_it_returns_10000_for_2_dot_0_to_2_dot_99(float $average)
-    {
-        $this->assertEquals(10000, StudentFactory::getScholarship($average));
-    }
-
-    public static function averageGradesFor10000(): array
-    {
-        return [
-            [2.0],
-            [2.99],
-            [2.5],
-        ];
-    }
-
-    // --- Hiba/Negatív tesztesetek ---
-
-    /**
-     * Teszteli, hogy 2.0 alatti átlag esetén 0-t ad-e vissza.
-     * 
-     */
-    #[DataProvider('averageGradesForZeroScholarship')]
-    public function test_it_returns_zero_for_below_2_dot_0(float $average)
-    {
-        $this->assertEquals(0, StudentFactory::getScholarship($average));
-    }
-
-    public static function averageGradesForZeroScholarship(): array
-    {
-        return [
-            [1.9],
-            [0.0],
-            [1.0],
-        ];
+        // Assert
+        $this->assertEquals($expectedAmount, $actualAmount, "Az ösztöndíj összege hibás az {$averageGrade} átlag esetén.");
     }
 }

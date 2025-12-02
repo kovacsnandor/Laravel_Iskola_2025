@@ -10,8 +10,6 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class StudentFactory extends Factory
 {
-
-
     protected function withFaker()
     {
         // Manuális beállítás az app config felülírására
