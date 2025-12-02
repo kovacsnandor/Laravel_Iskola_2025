@@ -16,21 +16,22 @@ class StudentFactory extends Factory
         return \Faker\Factory::create('hu_HU');
     }
 
-    public static function getScholarship(float $averageGrade): int
+
+    public static function getScholarShip(float $averageGrade): int
     {
 
         $scholarshipTiers = [
-            "4.5" => 30000,
-            "4.0" => 22000,
-            "3.0" => 15000,
-            "2.0" => 10000,
+            "4.5" => 42000,
+            "3.5" => 25000,
+            "2.5" => 16000,
+            "2.0" => 8000,
         ];
 
         $scholarshipAmount = 0;
 
         // Az 5.0-ás átlag külön kezelése a maximális díj miatt
         if ($averageGrade >= 5.0) {
-            return 40000;
+            return 60000;
         }
 
         foreach ($scholarshipTiers as $minAverage => $amount) {
@@ -40,9 +41,10 @@ class StudentFactory extends Factory
                 break;
             }
         }
-
-        return $scholarshipAmount; // 0 Ft-ot ad vissza 4.00 alatti átlag esetén
+        return $scholarshipAmount; // 0 Ft-ot ad vissza 2.00 alatti átlag esetén
     }
+
+
 
 // Használat:
 // $grade = $faker->randomFloat(1, 1.0, 5.0); // Pl. 4.7
