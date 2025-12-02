@@ -41,11 +41,10 @@ Authorization: Bearer {{token}}
 POST {{host}}/api/users 
 Content-Type: application/json
 Accept: application/json
-Authorization: Bearer {{token}}
 
 {
-    "name":  "Tanuló2",
-    "email": "tanulo2@example.com",
+    "name":  "Tanuló3",
+    "email": "tanulo3@example.com",
     "password": "123"
 }
 
@@ -60,7 +59,7 @@ Authorization: Bearer {{token}}
 }
 
 ### delete user
-DELETE {{host}}/api/users/2
+DELETE {{host}}/api/users/27
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -254,7 +253,17 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-"diakNev": "Tóth Márton", "schoolclassId": 3, "neme": true, "iranyitoszam": "4024", "lakHelyseg": "Debrecen", "lakCim": "Kossuth utca 18.", "szulHelyseg": "Nyíregyháza", "szulDatum": "2007.11.23", "igazolvanyszam": "AB482817", "atlag": 3.7, "osztondij": 25000
+    "diakNev": "Tóth Márton", 
+    "schoolclassId": 3, 
+    "neme": true, 
+    "iranyitoszam": "4024", 
+    "lakHelyseg": "Debrecen", 
+    "lakCim": "Kossuth utca 18.", 
+    "szulHelyseg": "Nyíregyháza", 
+    "szulDatum": "2007.11.23", 
+    "igazolvanyszam": "AB482817", 
+    "atlag": 3.7, 
+    "osztondij": 25000
 }
 
 ### delete playingsports by id 

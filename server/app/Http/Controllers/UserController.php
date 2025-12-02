@@ -126,13 +126,15 @@ class UserController extends Controller
                 'message' => 'ok',
                 'data' => []
             ];
+            $status = 200;
         } else {
             $data = [
                 'message' => 'Token not found',
                 'data' => []
             ];
+            $status = 404;
         }
-        return response()->json($data, options: JSON_UNESCAPED_UNICODE);
+        return response()->json($data,$status, options: JSON_UNESCAPED_UNICODE);
     }
 
 
