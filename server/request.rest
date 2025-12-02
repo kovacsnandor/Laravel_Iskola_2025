@@ -65,7 +65,7 @@ Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
 
-
+### --- usersme
 ### User csak önmagát törölheti
 DELETE {{host}}/api/usersme
 Content-Type: application/json
@@ -232,4 +232,44 @@ Authorization: Bearer {{token}}
     "diakNev": "Tóth Géza", 
     "atlag": 4.1, 
     "osztondij": 30000
+}
+
+### --- playingsports
+### get playingsports 
+GET {{host}}/api/playingsports 
+Accept: application/json 
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### get playingsports by id 
+GET {{host}}/api/playingsports/673 
+Accept: application/json 
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### post playingsports 
+POST {{host}}/api/students 
+Accept: application/json 
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+"diakNev": "Tóth Márton", "schoolclassId": 3, "neme": true, "iranyitoszam": "4024", "lakHelyseg": "Debrecen", "lakCim": "Kossuth utca 18.", "szulHelyseg": "Nyíregyháza", "szulDatum": "2007.11.23", "igazolvanyszam": "AB482817", "atlag": 3.7, "osztondij": 25000
+}
+
+### delete playingsports by id 
+DELETE {{host}}/api/students/3 
+Accept: application/json 
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### post playingsports 
+PATCH {{host}}/api/playingsports/1 
+Accept: application/json 
+Content-Type: application/json 
+Authorization: Bearer {{token}}
+
+{
+    "studentId": 1, 
+    "sportId": 8
 }

@@ -25,6 +25,11 @@ class Student extends Model
         'osztondij',
     ];
 
+     protected $hidden =[
+        'created_at',
+        'updated_at',
+    ];
+
     protected function casts(): array
     {
         return [
@@ -35,4 +40,6 @@ class Student extends Model
             'osztondij' => 'decimal:0',
         ];
     }
+
+
 }

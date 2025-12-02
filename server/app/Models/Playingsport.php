@@ -24,4 +24,9 @@ class Playingsport extends Model
             'sportId' => 'integer',
         ];
     }
+
+     protected $hidden =[
+        'created_at',
+        'updated_at',
+    ];
 }
