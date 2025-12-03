@@ -26,11 +26,18 @@ class DatabaseTest extends TestCase
         //Az adatbázis ellenőrzése
         $this->assertEquals($databaseNameConn, $databaseNameEnv);
         //Táblák létezésének 
-        $this->assertDatabaseHas('students');
-        $this->assertDatabaseHas('schoolclasses');
-        $this->assertDatabaseHas('playingsports');
-        $this->assertDatabaseHas('sports');
-        $this->assertDatabaseHas('users');
+        // $this->assertDatabaseHas('students');
+        // $this->assertDatabaseHas('schoolclasses');
+        // $this->assertDatabaseHas('playingsports');
+        // $this->assertDatabaseHas('sports');
+        // $this->assertDatabaseHas('users');
+        $this->assertTrue(Schema::hasTable('students'), 'students tábla nem létezik');
+        $this->assertTrue(Schema::hasTable('schoolclasses'), 'schoolclasses tábla nem létezik');
+        $this->assertTrue(Schema::hasTable('playingsports'), 'playingsports tábla nem létezik');
+        $this->assertTrue(Schema::hasTable('sports'), 'sports tábla nem létezik');
+        $this->assertTrue(Schema::hasTable('users'), 'users tábla nem létezik');
+
+
         echo PHP_EOL . "\tAdatbázis -> DB_DATABASE={$databaseNameEnv} | adatbázis: {$databaseNameConn}";
     }
 
