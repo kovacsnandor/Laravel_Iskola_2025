@@ -25,8 +25,8 @@ class StorePlayingsportRequest extends FormRequest
 
         return [
             // A szintaktika: unique:tábla,oszlop,kizárt_id,kulcsoszlop,extra_oszlop,extra_érték
-            'diakokId' => "required|integer|unique:$tableName,diakokId,NULL,diakokId,sportokId," . $this->sportokId,
-            'sportokId' => 'required|integer',
+            'studentId' => "required|integer|unique:$tableName,studentId,NULL,studentId,sportId," . $this->sportId,
+            'sportId' => 'required|integer',
         ];
     }
 }

@@ -46,6 +46,12 @@ abstract class TestBase extends TestCase
         return $token;
     }
 
+    protected function myGetId($response)
+    {
+        $token = $response->json('data')['id'];
+        return $token;
+    }
+
     protected function myGet(string $uri, string $token)
     {
         $headers = [
@@ -53,8 +59,6 @@ abstract class TestBase extends TestCase
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token
         ];
-        //Egy nem védett útvonalra küldünk egy kérést
-        $uri = '/api/sports';
         $response = $this
             ->withHeaders($headers)
             ->get($uri);

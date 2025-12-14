@@ -24,16 +24,16 @@ class UpdatePlayingsportRequest extends FormRequest
         $tableName = 'playingsports';
 
         // 1. Az ID megszerzése a route-ról (feltételezve, hogy a frissített modellt kapod vissza)
-        $idToIgnore = $this->route('playing_sport')->id;
+        $idToIgnore = $this->route('playingsport')->id;
 
         return [
-            'diakokId' => [
+            'studentId' => [
                 'required',
                 'integer',
                 // Az egyediségi szabály string formában:
-                "unique:$tableName,diakokId,$idToIgnore,id,sportokId," . $this->sportokId,
+                "unique:$tableName,studentId,$idToIgnore,id,sportId," . $this->sportokId,
             ],
-            'sportokId' => 'required|integer',
+            'sportId' => 'required|integer',
         ];
     }
 }

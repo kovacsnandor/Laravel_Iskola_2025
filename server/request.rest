@@ -14,7 +14,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-    "email": "tanar@example.com",
+    "email": "admin@example.com",
     "password": "123"
 }
 
@@ -49,7 +49,7 @@ Accept: application/json
 }
 
 ### patch user
-PATCH {{host}}/api/users/2
+PATCH {{host}}/api/users/4
 Content-Type: application/json
 Accept: application/json
 Authorization: Bearer {{token}}
@@ -177,7 +177,7 @@ Authorization: Bearer {{token}}
 }
 
 ### delete sport 
-DELETE {{host}}/api/sports/1 
+DELETE {{host}}/api/sports/38 
 Accept: application/json 
 Content-Type: application/json 
 Authorization: Bearer {{token}}
@@ -215,8 +215,8 @@ Authorization: Bearer {{token}}
     "lakHelyseg": "Debrecen", 
     "lakCim": "Kossuth utca 18.", 
     "szulHelyseg": "Nyíregyháza", 
-    "szulDatum": "2007.11.23", 
-    "igazolvanyszam": "AB482894", 
+    "szulDatum": "2007-11-23", 
+    "igazolvanyszam": "AB4828946", 
     "atlag": 3.7, 
     "osztondij": 25000
 }
@@ -247,23 +247,14 @@ Content-Type: application/json
 Authorization: Bearer {{token}}
 
 ### post playingsports 
-POST {{host}}/api/students 
+POST {{host}}/api/playingsports 
 Accept: application/json 
 Content-Type: application/json
 Authorization: Bearer {{token}}
 
 {
-    "diakNev": "Tóth Márton", 
-    "schoolclassId": 3, 
-    "neme": true, 
-    "iranyitoszam": "4024", 
-    "lakHelyseg": "Debrecen", 
-    "lakCim": "Kossuth utca 18.", 
-    "szulHelyseg": "Nyíregyháza", 
-    "szulDatum": "2007.11.23", 
-    "igazolvanyszam": "AB482817", 
-    "atlag": 3.7, 
-    "osztondij": 25000
+    "studentId": 1, 
+    "sportId": 8
 }
 
 ### delete playingsports by id 
